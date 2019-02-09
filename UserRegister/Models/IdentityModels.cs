@@ -47,5 +47,6 @@ namespace UserRegister.Models
         {
             return new ApplicationDbContext();
         }
+
     }
 }

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Data.Entity.Migrations;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Web;
@@ -15,6 +16,7 @@ namespace UserRegister.Controllers
     {
         private ApplicationSignInManager _signInManager;
         private ApplicationUserManager _userManager;
+        private ApplicationDbContext db = new ApplicationDbContext();
 
         public ManageController()
         {
@@ -73,6 +75,48 @@ namespace UserRegister.Controllers
                 BrowserRemembered = await AuthenticationManager.TwoFactorBrowserRememberedAsync(userId)
             };
             return View(model);
+        }
+
+        public ActionResult EditProfile(string userName)
+        {
+            ApplicationUser model = null;
+            if(userName == null)
+            {
+                model = db.Users.Find(User.Identity.GetUserId());
+            }
+            else
+            {
+                model = db.Users.Where(u => u.UserName == userName).FirstOrDefault();
+            }
+
+            return View(model);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult EditProfile([Bind(Include= "Id,UserName,FirstName,LastName,Email,Street,Postcode,City,Country,PhoneNumber")]ApplicationUser user)
+        {
+            if (ModelState.IsValid)
+            {
+                var targetUser = db.Users.Find(user.Id);
+
+                targetUser.UserName = user.UserName;
+                targetUser.FirstName = user.FirstName;
+                targetUser.LastName = user.LastName;
+                targetUser.Street = user.Street;
+                targetUser.Postcode = user.Postcode;
+                targetUser.City = user.City;
+                targetUser.Email = user.Email;
+                targetUser.Country = user.Country;
+                targetUser.PhoneNumber = user.PhoneNumber;
+
+                db.Users.AddOrUpdate(targetUser);
+                db.SaveChanges();
+
+                return Redirect("Index");
+            }
+
+            return Redirect("Index");
         }
 
         //
