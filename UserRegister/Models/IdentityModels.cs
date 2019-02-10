@@ -14,6 +14,9 @@ namespace UserRegister.Models
         public string FirstName { get; set; }
         public string LastName { get; set; }
 
+        [Display(Name = "Username")]
+        public override string UserName { get; set; }
+
         [Display(Name = "Full name")]
         public string FullName { get { return FirstName + " " + LastName; } }
 
