@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System;
+using System.ComponentModel.DataAnnotations;
 using System.Data.Entity;
 using System.Security.Claims;
 using System.Threading.Tasks;
@@ -20,6 +21,10 @@ namespace UserRegister.Models
         [Display(Name = "Full name")]
         public string FullName { get { return FirstName + " " + LastName; } }
 
+        [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
+        public DateTime? DateOfRegistration { get; set; }
+        
         public string Street { get; set; }
         public string Postcode { get; set; }
         public string City { get; set; }

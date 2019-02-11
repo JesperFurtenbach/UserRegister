@@ -187,6 +187,18 @@
     <Compile Include="Migrations\201902091150082_First Seed.Designer.cs">
       <DependentUpon>201902091150082_First Seed.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201902110850065_date.cs" />
+    <Compile Include="Migrations\201902110850065_date.Designer.cs">
+      <DependentUpon>201902110850065_date.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201902110856270_date2.cs" />
+    <Compile Include="Migrations\201902110856270_date2.Designer.cs">
+      <DependentUpon>201902110856270_date2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201902110858291_date3.cs" />
+    <Compile Include="Migrations\201902110858291_date3.Designer.cs">
+      <DependentUpon>201902110858291_date3.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
@@ -277,6 +289,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201902091150082_First Seed.resx">
       <DependentUpon>201902091150082_First Seed.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201902110850065_date.resx">
+      <DependentUpon>201902110850065_date.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201902110856270_date2.resx">
+      <DependentUpon>201902110856270_date2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201902110858291_date3.resx">
+      <DependentUpon>201902110858291_date3.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
